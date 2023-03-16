@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    height: auto;
+}
+
+.charts_section {
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    width: 100%;
+}
+
+.explain_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 2rem;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    padding: 1rem;
+    min-width: 25rem;
+    height: 100%;
+    font-size: 1.35rem;
+    font-weight: bolder;
+}
+
+.combination_result {
+    text-align: center;
+    background-color: rgb(255, 70, 131);
+    border-radius: 10px;
+    width: 75%;
+    padding: 1rem;
+    margin: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.divider {
+    width: 75%;
+    background-color: #b1b1b1;
+    margin: 2rem 0;
+}
+
+.explainerItemsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.explainerItem {
+    width: 75%;
+    margin: .75rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
