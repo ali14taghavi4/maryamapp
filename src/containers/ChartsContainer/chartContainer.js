@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import BarChart from "./barChart";
+import BarChart from "../../components/BarChart/barChart";
 import _ from "lodash";
 import classes from "./chartContainer.module.css";
+import ExplainBox from "../../components/ExplainBox/explainBox";
 
+//comment this constants
 const unique = [
     {
         "title": "hr",
@@ -911,12 +913,12 @@ function ChartsContainer() {
         //     .then((res) => res.json())
         //     .then((res) => {
         //     let selectedVals = {};
-        //     Object.values(unique).forEach((item) => {
+        //     Object.values(res).forEach((item) => {
         //         const middleIndex = Math.floor(item.data.length / 2);
         //         selectedVals[item.title] = item.data[middleIndex];
         //     });
         //     setSelectedValues(selectedVals);
-        //     setData(unique);
+        //     setData(res);
         //     });
         // } catch (err) {
         //     console.log(err);
@@ -983,32 +985,7 @@ function ChartsContainer() {
                     ))
                 }
             </div>
-            <div className={classes.explain_box}>
-                <span>Sleep Score</span>
-                {
-                    combinationResult && 
-                    <div className={classes.combination_result}>
-                        {
-                            combinationResult
-                        }
-                    </div>
-                }
-                {
-                    explainerData && 
-                    <div className={classes.explainerItemsContainer}>
-                        <hr className={classes.divider}/>
-                        {
-                            Object.keys(explainerData).map(item => (
-                                <div className={classes.explainerItem}>
-                                    <span>{item}</span>
-                                    <span>{explainerData[item]}</span>
-                                </div>
-                            ))
-                        }
-                        <hr className={classes.divider}/>
-                    </div>
-                }
-            </div>
+            <ExplainBox explainerData={explainerData} combinationResult={combinationResult}/>
         </div>
     );
 }
