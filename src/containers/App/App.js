@@ -3,9 +3,9 @@ import ChartsContainer from "../ChartsContainer/chartContainer";
 
 function App() {
     return (
-        <div>
+        <>
             <ChartsContainer/>
-        </div>
+        </>
     );
 }
 
