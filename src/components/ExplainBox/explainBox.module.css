@@ -19,21 +19,21 @@
     border-radius: 10px;
     width: 75%;
     padding: 1rem;
-    margin: 1.5rem;
+    margin: .5rem 1rem;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 .divider {
     width: 100%;
     background-color: #b1b1b1;
-    margin: 2rem 0;
+    margin: .75rem 0;
 }
 
 .explainerItemsContainer {
     display: flex;
     flex-direction: column;
     font-weight: 500;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     width: 75%;
     padding: 1rem;
 }
@@ -44,7 +44,7 @@
 
 .explainerItem {
     width: 100%;
-    margin: .75rem 0;
+    margin: .4rem 0;
     display: grid;
     grid-template-columns: 15% 30% 25% 30%;
     column-gap: 5%;
