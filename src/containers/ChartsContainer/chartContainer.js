@@ -1112,11 +1112,13 @@ const unique = {
         ]
     }
     ],
+    base_line: 60.31,
     single_prediction: 35,
     explainer: { "hr": -5.5, "humidity": 6.6 }
 }
 
 const predict = {
+    "base_line": 60.31,
     "single_prediction": "34.54",
     "y_predictions": {
         "hr": [
@@ -1420,6 +1422,7 @@ function ChartsContainer() {
     const [loading, setLoading] = useState(false);
     const [combinationResult, setCombinationResult] = useState(0);
     const [explainerData, setExplainerData] = useState()
+    const [baseLine, setBaseLine] = useState()
     const getDefaultData = async () => {
         // comment this section
         let selectedVals = {};
@@ -1432,6 +1435,7 @@ function ChartsContainer() {
         const result = parseFloat(unique.single_prediction);
         setCombinationResult(result);
         setExplainerData(unique.explainer)
+        setBaseLine(unique.base_line)
         // uncomment this section
         // try {
         // // fetch("mocks/synthetic_data_sorted.json", {
@@ -1453,6 +1457,7 @@ function ChartsContainer() {
         //     const result = parseFloat(res.single_prediction);
         //     setCombinationResult(result);
         //     setExplainerData(res.explainer)
+        //     setBaseLine(res.base_line)
         //     });
         // } catch (err) {
         //     console.log(err);
@@ -1478,12 +1483,14 @@ function ChartsContainer() {
         //     console.log(values);
         //     setCombinationResult(result);
         //     setDynamicY(res.y_predictions);
+        //     setBaseLine(res.base_line)
         //     setExplainerData(res.explainer)
         //     setLoading(false);
         // });
         // comment this section
         setCombinationResult(parseFloat(predict.single_prediction))
         setDynamicY(predict.y_predictions)
+        setBaseLine(predict.base_line)
         setExplainerData(predict.explainer)
     };
 
@@ -1519,7 +1526,7 @@ function ChartsContainer() {
                     ))
                 }
             </div>
-            <ExplainBox explainerData={explainerData} combinationResult={combinationResult}/>
+            <ExplainBox baseLine={baseLine} explainerData={explainerData} combinationResult={combinationResult}/>
         </div>
     );
 }

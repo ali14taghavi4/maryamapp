@@ -1,7 +1,7 @@
 import React from "react";
 import classes from './explainBox.module.css';
 
-const ExplainBox = ({combinationResult, explainerData}) => {
+const ExplainBox = ({combinationResult, explainerData, baseLine}) => {
     return (
         <div className={classes.explain_box}>
             <span>Sleep Score</span>
@@ -13,15 +13,21 @@ const ExplainBox = ({combinationResult, explainerData}) => {
                     }
                 </div>
             }
+            
             {
                 explainerData && 
                 <div className={classes.explainerItemsContainer}>
+                    <span>Baseline Sleep Score:  {baseLine}</span>
+                    <hr className={classes.divider}/>
+                    <span>Deviation from the baseline score for the selected values : </span>
                     <hr className={classes.divider}/>
                     {
                         Object.keys(explainerData).map(item => (
                             <div className={classes.explainerItem}>
-                                <span>{item}</span>
-                                <span>{explainerData[item]}</span>
+                                <span>For</span>
+                                <span className={classes.bolder}>{item}</span>
+                                <span>is</span>
+                                <span className={classes.bolder}>{explainerData[item]}</span>
                             </div>
                         ))
                     }
