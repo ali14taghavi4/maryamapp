@@ -5,12 +5,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     margin: 0 2rem;
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
     padding: 1rem;
-    min-width: 30rem;
-    height: 100%;
+    height: auto; 
     font-size: 1.3rem;
     font-weight: bolder;
 }
