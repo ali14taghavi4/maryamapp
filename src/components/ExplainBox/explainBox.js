@@ -1,5 +1,6 @@
 import React from "react";
 import classes from './explainBox.module.css';
+import _ from "lodash";
 
 const ExplainBox = ({combinationResult, explainerData, baseLine}) => {
     return (
@@ -25,7 +26,7 @@ const ExplainBox = ({combinationResult, explainerData, baseLine}) => {
                         Object.keys(explainerData).map(item => (
                             <div className={classes.explainerItem}>
                                 <span>For</span>
-                                <span className={classes.bolder}>{item}</span>
+                                <span className={classes.bolder}>{_.startCase(item)}</span>
                                 <span>is</span>
                                 <span className={classes.bolder}>{explainerData[item]}</span>
                             </div>
