@@ -2,13 +2,17 @@ import React from "react";
 import classes from './explainBox.module.css';
 import _ from "lodash";
 
-const ExplainBox = ({combinationResult, explainerData, baseLine}) => {
+const ExplainBox = ({ combinationResultBg, combinationResult, explainerData, baseLine }) => {
+    const explainerDataArray = [];
+    for (let key in explainerData) {
+        explainerDataArray.push({ key, value: explainerData[key] })   
+    }
     return (
         <div className={classes.explain_box}>
             <span>Sleep Score</span>
             {
                 combinationResult && 
-                <div className={classes.combination_result}>
+                <div style={{ "backgroundColor": combinationResultBg }} className={classes.combination_result}>
                     {
                         combinationResult
                     }
@@ -18,17 +22,17 @@ const ExplainBox = ({combinationResult, explainerData, baseLine}) => {
             {
                 explainerData && 
                 <div className={classes.explainerItemsContainer}>
-                    <span>Baseline Sleep Score:  {baseLine}</span>
+                    <span className={classes.baseLineSleepScore}>Baseline Sleep Score:  <span className={classes.numberSpan}>{baseLine}</span></span>
                     <hr className={classes.divider}/>
                     <span>Deviation from the baseline score for the selected values : </span>
                     <hr className={classes.divider}/>
                     {
-                        Object.keys(explainerData).map(item => (
+                        explainerDataArray.map(item => (
                             <div className={classes.explainerItem}>
                                 <span>For</span>
-                                <span className={classes.bolder}>{_.startCase(item)}</span>
+                                <span className={classes.bolder}>{_.startCase(item.key)}</span>
                                 <span>is</span>
-                                <span className={classes.bolder}>{explainerData[item]}</span>
+                                <span className={`${classes.bolder} ${classes.numberSpan}`}>{item.value}</span>
                             </div>
                         ))
                     }

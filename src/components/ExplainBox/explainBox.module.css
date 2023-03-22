@@ -46,6 +46,19 @@
     width: 100%;
     margin: .4rem 0;
     display: grid;
+    align-items: center;
     grid-template-columns: 15% 30% 25% 30%;
     column-gap: 5%;
+}
+
+.baseLineSleepScore {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.numberSpan {
+    font-size: 1.5rem;
+    font-weight: 500;
 }

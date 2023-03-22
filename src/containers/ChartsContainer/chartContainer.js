@@ -1114,10 +1114,12 @@ const unique = {
     ],
     base_line: 60.31,
     single_prediction: 35,
+    color: "#E3E48D",
     explainer: { "hr": -5.5, "humidity": 6.6 }
 }
 
 const predict = {
+    "color": "#E3E48D",
     "base_line": 60.31,
     "single_prediction": "34.54",
     "y_predictions": {
@@ -1423,6 +1425,7 @@ function ChartsContainer() {
     const [combinationResult, setCombinationResult] = useState(0);
     const [explainerData, setExplainerData] = useState()
     const [baseLine, setBaseLine] = useState()
+    const [combinationResultBg, setCombinationResultBg] = useState()
     const getDefaultData = async () => {
         // comment this section
         let selectedVals = {};
@@ -1436,6 +1439,7 @@ function ChartsContainer() {
         setCombinationResult(result);
         setExplainerData(unique.explainer)
         setBaseLine(unique.base_line)
+        setCombinationResultBg(unique.color)
         // uncomment this section
         // try {
         // // fetch("mocks/synthetic_data_sorted.json", {
@@ -1457,6 +1461,7 @@ function ChartsContainer() {
         //     const result = parseFloat(res.single_prediction);
         //     setCombinationResult(result);
         //     setExplainerData(res.explainer)
+        //     setCombinationResultBg(res.color)
         //     setBaseLine(res.base_line)
         //     });
         // } catch (err) {
@@ -1484,6 +1489,7 @@ function ChartsContainer() {
         //     setCombinationResult(result);
         //     setDynamicY(res.y_predictions);
         //     setBaseLine(res.base_line)
+        //     setCombinationResultBg(res.color)
         //     setExplainerData(res.explainer)
         //     setLoading(false);
         // });
@@ -1491,6 +1497,7 @@ function ChartsContainer() {
         setCombinationResult(parseFloat(predict.single_prediction))
         setDynamicY(predict.y_predictions)
         setBaseLine(predict.base_line)
+        setCombinationResultBg(predict.color)
         setExplainerData(predict.explainer)
     };
 
@@ -1526,7 +1533,12 @@ function ChartsContainer() {
                     ))
                 }
             </div>
-            <ExplainBox baseLine={baseLine} explainerData={explainerData} combinationResult={combinationResult}/>
+            <ExplainBox 
+                baseLine={baseLine} 
+                explainerData={explainerData} 
+                combinationResult={combinationResult}
+                combinationResultBg={combinationResultBg}
+            />
         </div>
     );
 }
