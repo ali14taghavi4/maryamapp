@@ -1473,6 +1473,7 @@ function ChartsContainer() {
         
         // TODO: get combination result
         // uncomment this section
+        // // set loading state to true
         // setLoading(true);
         // fetch("http://127.0.0.1:5000/predictchart", {
         //     method: "POST",
@@ -1484,6 +1485,7 @@ function ChartsContainer() {
         // })
         // .then((res) => res.json())
         // .then((res) => {
+        //     /// set response to state and set loading state to false
         //     const result = parseFloat(res.single_prediction);
         //     console.log(values);
         //     setCombinationResult(result);
@@ -1502,15 +1504,17 @@ function ChartsContainer() {
     };
 
     useEffect(() => {
+        /// get default data while component mount, empty dependency array means this function execute once
         getDefaultData();
         // getProductionData();
     }, []);
 
     const onSelectedValuesChange = (dataKey, value) => {
+        /// change selected values base on new value 
+        // and call getCombinationResult function to get new data from server
         let newValues = selectedValues;
         newValues[dataKey] = value;
         setSelectedValues(newValues);
-
         getCombinationResult(newValues);
     };
 

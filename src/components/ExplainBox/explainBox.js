@@ -3,6 +3,7 @@ import classes from './explainBox.module.css';
 import _ from "lodash";
 
 const ExplainBox = ({ combinationResultBg, combinationResult, explainerData, baseLine }) => {
+    /// change format of data from object to array
     const explainerDataArray = [];
     for (let key in explainerData) {
         explainerDataArray.push({ key, value: explainerData[key] })   
